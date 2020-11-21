@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <script src="https://www.voguepay.com/js/voguepay.js"></script>
+
+    <script>
+        closedFunction=function() {
+            alert('window closed');
+        }
+    
+         successFunction=function(transaction_id) {
+            alert('Transaction was successful, Ref: '+transaction_id)
+        }
+    
+         failedFunction=function(transaction_id) {
+             alert('Transaction was not successful, Ref: '+transaction_id)
+        }
+    
+    
+        function pay(item,price){
+           //Initiate voguepay inline payment
+           var randNumber = new Date().getMilliseconds()+new Date().getMilliseconds();
+           console.log("randNumber:",'myref'+randNumber);
+            Voguepay.init({
+                v_merchant_id: 'demo',
+                total: price,
+                notify_url:'http://domain.com/notification.php',
+                cur: 'NGN',
+                merchant_ref: 'myref'+randNumber,
+                memo:'Payment for '+item,
+                developer_code: '5a61be72ab323',
+                store_id:1,
+                items: [
+                    {
+                        name: "Item name 1",
+                        description: "Description 1",
+                        price: 900
+                    },
+                  
+                ],
+                customer: {
+                    name: 'Abdul B',
+                    address: '20 Kunda',
+                    city: 'Customer city',
+                    state: 'Customer state',
+                    zipcode: 'Customer zip/post code',
+                    email: 'Customer email',
+                    phone: 'Customer phone'
+                },
+               closed:closedFunction,
+               success:successFunction,
+               failed:failedFunction
+           });
+        }
+    
+     </script>
+    
+     
+</head>
+<body>
+<div class="wrapper">
+</div>        
+    <p id="p1">D.Brown</p>
+    <img src="music4.jpg" alt="musicguy" id="img"></img>
+    <p id="p2">AVAILABLE NOW</p>
+    <span class="border"></span>
+    <p id="p3">NEW<br>ALBUM</p>
+    <button class="button" onclick="pay('shirt',8900)">BUY</button>
+    <p id="p4">Follow & Listen</p>
+    <div class="socialmedia">
+        
+        <p><i class="fa fa-facebook-official" style="font-size: 25px; margin-left: px;"></i></p>
+        <p><i class="fa fa-instagram" style="font-size: 25px; margin-left: px; margin-top: px; position: ; ; margin: px; "></i></p>
+        <p><i class="fa fa-pinterest-p" style="font-size: 25px; margin-left: ; margin-top: px; position: ; ; margin: px;"></i></p>     
+        <p><i class="fa fa-twitter" style="font-size: 25px; margin-left: px; margin-top: px; position: ;"></i></p> 
+        <p><i class="fa fa-linkedin" style="font-size: 25px; margin-left:px; margin-top: px; position:;"></i></p> 
+    </div>
+    <div class="top">
+        <div class="top a">
+            <div class="topright">
+            <a href ="#here"class="active" style="margin-left:40px;">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">SERVICES</a>
+            <a href="#">PORTFOLIO</a>
+            <a href="#">PRICING</a>
+            <a href="#">CONTACT</a>
+            </div>    
+        </div> 
+    </div> 
+
+<div class="wrapper1"> 
+  <p id="p5">LATEST MUSIC VIDEOS</p> 
+</div>
+<div class="wrapper2">
+<iframe src="https://www.youtube.com/embed/imzMnXKIOKs" style="width: 200px; height:150px;"> </iframe>   
+
+
+</div>    
+<div class="footer">
+    <p style="margin-left:60px; margin-top:130px;  position:absolute; color:#727171; margin-top: 20px; font-size: 30px;">Contact us</p>
+                <p style="color:#727171"><i class="fa fa-map-marker" aria-hidden="true" style="color:#727171; margin-left: 50px; margin-top: 30px; font-size:21px; position: ;"></i>  Lagos.Nigeria</p>
+                <p style="color:#727171"><i class="fa fa-mobile" aria-hidden="true" style="color:#727171; margin-left: 50px; margin-top: -30px; font-size:21px;position: ;"></i>  +234800000000</p>
+                <p style="color:#727171"><i class="fa fa-envelope" aria-hidden="true" style="color:#727171; margin-left: 50px; margin-top: -30px; font-size:21px; position: ;"></i> myemail@something.com</p>
+                <form action="/action_page.php">
+                    <input type="text" id="fname" name="firstname" placeholder="First Name" style="margin-top: -180px;">
+                    <input type="text" id="fname" name="lastname" placeholder="Last Name" style="margin-top: -180px; margin-left: 830px;">
+                    <input type="text" id="email" name="email" placeholder="Email" style="margin-left:550px; margin-top:-120px;">
+                    <input type="submit" value="Submit" class="select" >
+                </form>    
+
+</div>    
+</body>
+</html>
