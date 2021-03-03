@@ -1,0 +1,35 @@
+{% extends 'User/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+        .logodiv{
+			float: left;
+			float: top;
+			position: absolute;
+			margin-left: 500px;
+			}
+    </style>
+</head>
+<body>
+<br>
+<div class="container px-lg-10">
+    <div class="row justify-content-center">
+        <h3>You have logged out!</h3>
+    </div>
+
+    <div class="border-top pt-3">
+        <div class="row justify-content-center">
+                    <small class="text-muted">
+                     <a class="ml-2" href="{% url 'login' %}">Re-login?</a>
+                    </small>
+        </div>
+    </div>
+</div>
+
+        </div>
+		   <div class="logodiv"><img src="{% static 'img/logo1.png'%}" id="mainlogo">
+		   <p id="brag">Over 280 stream platforms worldwide and various promotional packages.</p>
+        </div>
+</body>
+{% endblock content %}

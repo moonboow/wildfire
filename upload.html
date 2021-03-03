@@ -1,0 +1,44 @@
+{% extends 'User/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<head>
+    <!-- <style>
+ 		.mainframe{
+			background: center / contain repeat-x  url('/static/img/background1.jpg');
+			}
+	</style> -->
+</head>
+<body class="mainframe">
+    <div class="container px-lg-7">
+        <div class="row justify-content-center" >
+            <div class="col-md-5">
+                <h5>Upload song</h5>
+                <hr>
+                <div class="content-section">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <div class="media-body">
+
+                        <div>
+                            <p class="account-heading">Artist</p>
+                            <p class="text-secondary">{{ u_form.username }}</p>
+                        </div><br>
+                        <div>
+                            <p class="account-heading">Album</p>
+                            <p class="text-secondary">{{ u_form.email }}</p>
+                        </div><br>
+                         <div>
+                            <p class="account-heading">Track No.</p>
+                            <p class="text-secondary">{{ u_form.email }}</p>
+                        </div><br>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Upload</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

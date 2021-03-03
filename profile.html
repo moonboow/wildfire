@@ -1,0 +1,48 @@
+{% extends 'User/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<head>
+    <!-- <style>
+ 		.mainframe{
+			background: center / contain repeat-x  url('/static/img/background1.jpg');
+			}
+	</style> -->
+</head>
+<body class="mainframe">
+    <div class="container px-lg-7">
+        <div class="row justify-content-center" >
+            <div class="col-md-7">
+                <h5>User Profile</h5>
+                <hr>
+                <div class="content-section">
+                    <div class="media">
+                        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <div class="media-body">
+
+                        <div>
+                            <p class="account-heading">Username</p>
+                            <p class="text-secondary">{{ u_form.username }}</p>
+                        </div><br>
+                        <div>
+                            <p class="account-heading">Email</p>
+                            <p class="text-secondary">{{ u_form.email }}</p>
+                        </div><br>
+                            <p class="text-secondary">{{ p_form.phone }}</p>
+                            <p class="text-secondary">{{ p_form.address }}</p>
+                            <p class="text-secondary">{{ user.songs.artist }}</p>
+                            <p class="text-secondary">{{ user.songs.album }}</p>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Update</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+{% endblock %}
